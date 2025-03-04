@@ -10,6 +10,7 @@ INC_DIR := include
 TARGET := $(BIN_DIR)/main
 GEN := $(BIN_DIR)/gen
 CHECKER := $(BIN_DIR)/checker
+CUDA := $(BIN_DIR)/cuda
 
 SRCS := $(wildcard $(SRC_DIR)/*.cpp)
 SRCS := $(filter-out $(SRC_DIR)/gen.cpp, $(SRCS))
@@ -17,8 +18,11 @@ SRCS := $(filter-out $(SRC_DIR)/main.cpp, $(SRCS))
 SRCS := $(filter-out $(SRC_DIR)/checker.cpp, $(SRCS))
 OBJS := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRCS))
 
-all : check_dirs $(TARGET) $(GEN) $(CHECKER)
+all : check_dirs $(TARGET) $(GEN) $(CHECKER) $(CUDA)
 	chmod +x test.sh
+
+$(CUDA): $(SRC_DIR)/cuda.cu
+	nvcc -std=c++11 -arch sm_61 -O3 -I"moderngpu/src" --expt-extended-lambda -o $@ $<
 
 $(GEN): $(SRC_DIR)/gen.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $<

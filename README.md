@@ -15,6 +15,8 @@ Odbywa się za pomocą narzędzia `Makefile`
   - `obj/` : w nowo-powstałym katalogu znajdują się pliki `.o`
   - `bin/` : tu znajdują się binarki
 - `make clean` : czyści projekt
+> [!IMPORTANT]
+> należy mieć sklonowaną bibliotekę [`moderngpu`](https://github.com/moderngpu/moderngpu) w repozytorium
 
 ### Generowanie danych
 1. `make all`
@@ -29,3 +31,4 @@ W `test/` znajdują się testy, jeśli plik nie jest w `test/skip` to zostanie 
 ### Pomiary czasu
 1. `make all`
 2. `./bin/main < input`
+> [!IMPORTANT] bitonic sort na CUDA inaczej mierzy swój czas działania, jest to już zawarte w `./test.sh`

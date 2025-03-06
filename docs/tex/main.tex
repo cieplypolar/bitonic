@@ -165,7 +165,24 @@ Jak widać na powyższych wykresach:
 \item Sukcesem jest, że lepiej zarządzam wątkami niż robi to biblioteka \textbf{OpenMP}
 \end{enumerate}
 
-\section*{Podsumowania}
+\section*{Podsumowanie}
 Mojej implementacji jest daleko od idealnej sieci sortującej. Wyniki pokazują również, jak bardzo dopracowany jest \texttt{sort} z \texttt{STL}. Być może na \textbf{CUDA} udałoby się pokonać \texttt{sort} z \texttt{STL}.
+
+\newpage
+
+\section*{CUDA (aktualizacja po czasie)}
+W końcu udało mi się zebrać do implementacji sortowania bitonicznego na CUDA i wyniki są bardzo zadowalające. \texttt{sort} z STL został pokonany ;).
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{stlVsCUDA.jpg}
+    \caption{STL vs CUDA}
+\end{figure}
+
+Kilka słów o implementacji:
+\begin{enumerate}
+    \item Całość opiera się o 2 pętle \texttt{for}. Jedna przebiega po rozmiarze podzadania w sortowaniu bitonicznym, a druga udaje mergowanie.
+    \item Równoległość osiągnięta z pomocą biblioteki \texttt{moderngpu} (powodem jest tylko i wyłącznie moja wygoda, żeby samemu nie pisać kerneli). 
+\end{enumerate}
 
 \end{document}

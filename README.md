@@ -31,4 +31,5 @@ W `test/` znajdują się testy, jeśli plik nie jest w `test/skip` to zostanie 
 ### Pomiary czasu
 1. `make all`
 2. `./bin/main < input`
-> [!IMPORTANT] bitonic sort na CUDA inaczej mierzy swój czas działania, jest to już zawarte w `./test.sh`
+> [!IMPORTANT]
+> bitonic sort na CUDA inaczej mierzy swój czas działania, jest to już zawarte w `./test.sh`

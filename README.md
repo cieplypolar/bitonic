@@ -5,6 +5,7 @@ Projekt na kurs **Programowanie Współbieżne 2024/25** na **Uniwersytecie Jagi
 2. z sortowaniem przez wstawianie
 3. OpenMP
 4. z użyciem wątków systemowych
+5. z użyciem CUDA i [`moderngpu`](https://github.com/moderngpu/moderngpu)
 ### Struktura projektu
 - `docs/` : zawiera raport i skrypt do generowania wykresów 
 - `include/` i `src/` : zawierają kod źródłowy 
